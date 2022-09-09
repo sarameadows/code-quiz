@@ -1,0 +1,7 @@
+header {
+    padding: 30px 25px;
+    color: magenta;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
