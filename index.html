@@ -14,7 +14,7 @@
     <!--Header for high scores and timer-->
     <header class="row py-3">
         <div class="col text-left ml-3">
-            <button id="high-scores" class="btn">View high scores</button>
+            <button id="view-high-scores" class="btn">View high scores</button>
         </div>
         <div id="timer" class="col text-right mr-3">
             Time: <span id="time">0</span>
@@ -41,15 +41,30 @@
                     <button id="answer-3" class="btn btn-info btn-lg mt-2 col-4 d-block"></button>
                     <button id="answer-4" class="btn btn-info btn-lg mt-2 col-4 d-block"></button>
                 </div>
-                <div id="answer-check" style="display:none;" class="pl-5 pt-3 text-large"></div>
+                <div id="answer-check" style="display:none;" class="pl-5 pt-3"></div>
             </div>
             <!-- Div for individual score -->
-            <div id="individual-score">
-
+            <div id="individual-score" class="col-6 text-left" style="display: none;">
+                <h1 class="font-weight-bold ml-5 pt-2">All done!</h1>
+                <h2 class="ml-5 pt-2">Your final score is <span id="final-score"></span>!</h2>
+                <form>
+                    <h4 class="ml-5 pt-2">
+                        Enter your initials: 
+                        <input id="initials" type="text" placeholder="AAA" class="ml-3">
+                        <button type="submit" id="submit-initials" class="btn btn-info ml-3">Submit</button>
+                    </h4>
+                </form>
             </div>
             <!-- Div for high scores -->
-            <div id="high-score">
+            <div id="high-score" class="col-6 text-left" style="display: none;">
+                <h1 class="font-weight-bold ml-5 pt-2">High Scores</h1>
+                <ul id="high-scores-list" class="list-group ml-5 pt-2">
 
+                </ul>
+                <div class="ml-5 pt-3">
+                    <button id="back" class="btn btn-info">Go back</button>
+                    <button id="clear" class="btn btn-info">Clear high scores</button>
+                </div>
             </div>
         </div>
     </main> 
