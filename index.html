@@ -14,7 +14,7 @@
     <!--Header for high scores and timer-->
     <header class="row py-3">
         <div class="col text-left ml-3">
-            <button id="high-scores" class="">View high scores</button>
+            <button id="high-scores" class="btn">View high scores</button>
         </div>
         <div id="timer" class="col text-right mr-3">
             Time: <span id="time">0</span>
@@ -28,13 +28,20 @@
         <div id="quiz" class="row justify-content-center py-3"> 
             <!-- Div for starting -->
             <div id="start" class="col-6 text-center">
-                <h1 class="font-weight-bold pl-5 pr-5">Coding Quiz</h1>
+                <h1 class="font-weight-bold px-5">Coding Quiz</h1>
                 <p class="p-5">Test your knowledge of Javascript fundamentals! Answer the following questions within the time limit, incorrect answers will reduce your time by 10 seconds!</p>
-                <button type="button" id="start-button" class="btn btn-info ml-5 align-center">Start Quiz</button>
+                <button type="button" id="start-button" class="btn btn-info align-center">Start Quiz</button>
             </div>
             <!-- Div for questions -->
-            <div id="questions">
-
+            <div id="questions" class="col-6 text-left" style="display:none;">
+                <h1 id="question-title" class="pl-5 pr-5"></h1>
+                <div class="pl-5 pt-4">
+                    <button id="answer-1" class="btn btn-info btn-lg mt-2 col-4 d-block"></button>
+                    <button id="answer-2" class="btn btn-info btn-lg mt-2 col-4 d-block"></button>
+                    <button id="answer-3" class="btn btn-info btn-lg mt-2 col-4 d-block"></button>
+                    <button id="answer-4" class="btn btn-info btn-lg mt-2 col-4 d-block"></button>
+                </div>
+                <div id="answer-check" style="display:none;" class="pl-5 pt-3 text-large"></div>
             </div>
             <!-- Div for individual score -->
             <div id="individual-score">
