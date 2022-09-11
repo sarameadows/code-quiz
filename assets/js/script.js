@@ -61,14 +61,17 @@ const highScoreListDiv = document.getElementById('high-scores-list');
 const backBtn = document.getElementById('back');
 const clearBtn = document.getElementById('clear');
 
+// start the timer
 function startTimer () {
     var timer = setInterval(function() {
         timeLeft--;
         time.textContent = timeLeft;
+        // ran out of time
         if(timeLeft <= 0) {
             clearInterval(timer);
             endQuiz()
         }
+        // answered all questions
         if(questionIndex > questions.length - 1) {
             clearInterval(timer);
             endQuiz();
