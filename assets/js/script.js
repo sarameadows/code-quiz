@@ -34,6 +34,7 @@ const time = document.getElementById("time");
 // basic quiz elements
 var score = 0;
 var questionIndex = 0;
+var timeLeft = 75;
 
 // start div elements
 const startDiv = document.getElementById("start");
@@ -60,10 +61,29 @@ const highScoreListDiv = document.getElementById('high-scores-list');
 const backBtn = document.getElementById('back');
 const clearBtn = document.getElementById('clear');
 
+function startTimer () {
+    var timer = setInterval(function() {
+        timeLeft--;
+        time.textContent = timeLeft;
+        if(timeLeft <= 0) {
+            clearInterval(timer);
+            endQuiz()
+        }
+        if(questionIndex > questions.length - 1) {
+            clearInterval(timer);
+            endQuiz();
+        }
+    },1000);
+}
+
 // hide start screen and display quiz questions
 function displayQuiz() {
     startDiv.style.display = "none";
     quizDiv.style.display = "";
+    questionIndex = 0;
+    timeLeft = 75;
+    answerCheck.textContent = "";
+    startTimer();
     displayQuestion();
 }
 
@@ -93,6 +113,7 @@ function checkAnswer(answer) {
     } else {
         answerCheck.style.display = "block";
         answerCheck.textContent = "Wrong!"
+        timeLeft -= 10;
     }
 
     // set index to ask next question
@@ -109,12 +130,12 @@ function endQuiz() {
     quizDiv.style.display = "none";
     finalScoreDisplay.textContent = score;
     individualScoreDiv.style.display = "block";
+    time.textContent = 0;   
 };
 
 // save initials and score to local storage
 function saveHighScore(event) {
     event.preventDefault();
-
     // get locally saved high scores and set up an array to add them to
     var savedHighScores = localStorage.getItem("high scores");
     var scoresArr;
